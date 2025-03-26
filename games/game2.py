@@ -5,16 +5,16 @@ from engine.game_engine import run_game
 def generate_geometric_progression():
     # Генерация случайных параметров для прогрессии
     first_term = random.randint(1, 10)  # первый элемент прогрессии
-    ratio = random.randint(2, 5)  # знаменатель прогрессии (обычно число больше 1)
+    ratio = random.randint(2, 5)  # знаменатель прогрессии
     length = random.randint(5, 10)  # длина прогрессии (от 5 до 10)
 
     progression = [first_term * (ratio ** i) for i in range(length)]
 
-    # Выбираем случайную позицию для пропущенного числа
+    # Выбир случайной позиции для пропущенного числа
     missing_index = random.randint(0, length - 1)
     missing_value = progression[missing_index]
 
-    # Заменяем пропущенное число на две точки
+    # Замена пропущенного числа на две точки
     progression[missing_index] = '..'
 
     return progression, missing_value
@@ -27,16 +27,16 @@ def play_game():
     # Генерация прогрессии
     progression, missing_value = generate_geometric_progression()
 
-    # Выводим вопрос с пропущенным числом
+    # Вывод вопроса с пропущенным числом
     print("Question:", end=" ")
     for num in progression:
         print(num, end=" ")
     print()  # Для перехода на новую строку после вывода прогрессии
 
-    # Получаем ответ пользователя
+    # Получение ответа пользователя
     user_answer = input("Your answer: ")
 
-    # Проверяем ответ
+    # Проверка ответа
     try:
         user_answer = int(user_answer)
         if user_answer == missing_value:
